@@ -1,0 +1,176 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #e0f2f7; /* Um azul claro suave */
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    width: 95%;
+    max-width: 700px;
+    padding: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 500px;
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+}
+
+.chat-window {
+    border: 1px solid #cce7ee;
+    border-radius: 10px;
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #f8fcff;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Restaurado o gap original de 10px entre as mensagens */
+}
+
+/* Contêiner para a imagem e a mensagem */
+.message-container {
+    display: flex;
+    align-items: flex-end; /* Alinha o conteúdo à base */
+    gap: 10px; /* Espaço entre a imagem e a bolha da mensagem */
+    max-width: 90%;
+}
+
+/* Estilo para as fotos de perfil */
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid #ccc;
+}
+
+/* Estilo individual para cada mensagem (a bolha de texto) */
+.message {
+    padding: 12px 18px;
+    border-radius: 20px;
+    max-width: calc(100% - 50px); /* Ajusta a largura máxima da bolha */
+    word-wrap: break-word;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    font-size: 0.95em;
+    line-height: 1.4;
+    flex-grow: 1;
+}
+
+/* Estilo para mensagens do usuário (você) */
+.user-message-container {
+    align-self: flex-end; /* Alinha o contêiner completo à direita */
+    flex-direction: row-reverse; /* Inverte a ordem: mensagem à esquerda, foto à direita */
+}
+
+.user-profile-pic {
+    border-color: #007bff; /* Borda azul para a foto do usuário */
+}
+
+.user-message {
+    background-color: #007bff;
+    color: white;
+    border-bottom-right-radius: 5px;
+}
+
+/* Estilo para mensagens da IA */
+.ai-message-container {
+    align-self: flex-start; /* Alinha o contêiner completo à esquerda */
+    flex-direction: row; /* Padrão: foto à esquerda, mensagem à direita */
+}
+
+.ai-profile-pic {
+    border-color: #28a745; /* Borda verde para a foto da IA */
+}
+
+.ai-message {
+    background-color: #e9ecef;
+    color: #343a40;
+    border-bottom-left-radius: 5px;
+}
+
+/* Removido: Regras CSS para .no-profile-pic, pois não são mais necessárias */
+/* .message-container.no-profile-pic .profile-pic { visibility: hidden; } */
+/* .ai-message-container.no-profile-pic { padding-left: 50px; } */
+
+.input-area {
+    display: flex;
+    gap: 15px;
+    margin-top: auto;
+}
+
+#userInput {
+    flex-grow: 1;
+    padding: 14px 20px;
+    border: 1px solid #ced4da;
+    border-radius: 25px;
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#userInput:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+#sendButton {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#sendButton:hover {
+    background-color: #218838;
+    transform: translateY(-1px);
+}
+
+#sendButton:active {
+    background-color: #1e7e34;
+    transform: translateY(0);
+}
+
+/* Responsividade básica para telas menores */
+@media (max-width: 720px) {
+    .container {
+        padding: 20px;
+        min-height: 450px;
+    }
+    h1 {
+        font-size: 1.5em;
+    }
+    .input-area {
+        flex-direction: column;
+        gap: 10px;
+    }
+    #sendButton {
+        width: 100%;
+    }
+    .message-container {
+        max-width: 100%;
+    }
+    .message {
+        max-width: calc(100% - 60px);
+    }
+}
